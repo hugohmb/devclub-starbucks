@@ -6,42 +6,41 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-
 }
 
-body{
+body {
     padding-top: 20px;
     padding-right: 100px;
     padding-left: 100px;
     overflow-y: hidden;
     min-height: calc(100vh - 50px);
     margin: 0;
-    padding: 1;
+    padding: 1;    
 }
 
-.conteudo{
+.conteudo {
     width: 100%;
-    max-width: 100%; /* Evita que ultrapasse a largura da tela */
-    display: flex; 
+    max-width: 100%;
+    /* Evita que ultrapasse a largura da tela */
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Adiciona flexibilidade para que os itens se movam se necessário */
+    flex-wrap: wrap;
+    /* Adiciona flexibilidade para que os itens se movam se necessário */
 }
 
-.caixa-texto{
+.caixa-texto {
     width: 600px;
     font-weight: bold;
-    
 }
 
-h1{
+h1 {
     color: #333333;
     font-size: 60px;
     font-weight: bold;
-
 }
 
-span{
+span {
     color: #017143;
     font-size: 70px;
     font-weight: 900;
@@ -57,7 +56,7 @@ p {
     line-height: 1.5;
 }
 
-button{
+button {
     background: #017143;
     color: #ffffff;
     border-radius: 40px;
@@ -69,19 +68,24 @@ button{
     box-sizing: border-box;
 }
 
-
-
-button:hover{
+button:hover {
     background: #05633c;
-    transform: scale(1.1); /* aumenta em 10%, sem empurrar nada */
+    transform: scale(1.1);
+    /* aumenta em 10%, sem empurrar nada */
     transition: transform 0.3s ease;
 }
 
-.caixa-imagem{
+.caixa-imagem {
     width: 600px;
     display: flex;
     justify-content: flex-end;
-    margin-top: 250px;
+    margin-top: 250px; /* valor padrão para monitores maiores */
+}
+
+@media (max-height: 800px) {
+    .caixa-imagem {
+        margin-top: 40px; /* notebooks com menos altura visível */
+    }
 }
 
 .starbucks {
@@ -90,112 +94,91 @@ button:hover{
     opacity: 1;
 }
 
-.menu{
+.menu {
     display: flex;
     justify-content: center;
 }
 
-.botao-menu{
+.botao-menu {
     width: 60px;
     cursor: pointer;
     transition: 0.5s;
     position: relative;
     top: -50px;
-    
 }
 
-.botao-menu:hover{    
-    transform: translatey(-30px);    
+.botao-menu:hover {
+    transform: translatey(-30px);
 }
 
-.circulo{
+.circulo {
     width: 100%;
     height: 100%;
     background: #017143;
     position: absolute;
     top: 0;
     left: 0;
-    clip-path: circle(600px at right 750px);
-    z-index: -1; /* determina a camada*/
-    transition: background 0.5s ease;
-    transition: background-color 0.5s ease-in-out;
+    clip-path: circle(30vw at right 40vw); /* adaptável ao tamanho da tela */
+    z-index: -1;
+    transition: background 0.5s ease, background-color 0.5s ease-in-out;
     opacity: 0.8;
-    /*animation: pulsar 4s infinite ease-in-out;*/
 }
 
-/* Definindo a animação 'pulsar' 
-@keyframes pulsar {
-    0% {
-        transform: scale(1);  Tamanho inicial 
-    }
-    50% {
-        transform: scale(1.05);  Aumenta 5% 
-    }
-    100% {
-        transform: scale(1);  Retorna ao tamanho original 
-    }
-}*/
-
 .video-fundo {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
-    z-index: -2; /* coloca atrás de todo o conteúdo */
-    pointer-events: none; /* evita que o vídeo atrapalhe cliques nos elementos da frente */
+    z-index: -2;
+    pointer-events: none;
     opacity: 0.3;
 }
 
-/* Media Queries para dispositivos móveis */
-@media (max-width: 768px) {
-    body {
-        padding: 20px;
-    }
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribui os itens igualmente */
+    flex-wrap: wrap; /* Permite que os itens que não cabem na linha sejam movidos para a linha seguinte */
+}
 
-    .conteudo {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .caixa-texto {
-        width: 100%;
-        font-size: 18px;
-    }
-
-    .caixa-imagem {
-        width: 100%;
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .starbucks {
-        width: 70%;
-    }
-
-    button {
-        padding: 12px 20px;
-        font-size: 18px;
-        margin-top: 15px;
-    }
+.item {
+    flex: 1 1 100%; /* Os itens ocupam 100% do espaço disponível e podem se redimensionar */
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 36px;
+    .caixa-imagem {
+        width: 100%;  /* A largura da caixa vai ocupar toda a tela */
+        margin-top: 10vh; /* Ajusta a margem no topo para dar mais espaço */
     }
 
-    p {
-        font-size: 14px;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
+    .circulo {
+        clip-path: circle(50vw at right 50vw); /* Ajusta o círculo para que ele não fique gigante */
+    }
+
+    .botao-menu {
+        top: 10px; /* Ajusta a posição do botão-menu */
+    }
+
+    .caixa-texto {
+        font-size: 14px;  /* Diminui o texto para se ajustar ao tamanho da tela */
+        width: 100%; /* Garante que o texto não ultrapasse a tela */
+    }
+
+    h1 {
+        font-size: 36px; /* Diminui o tamanho do título */
+    }
+
+    span {
+        font-size: 40px; /* Diminui o tamanho do span */
     }
 
     button {
-        width: 100%;
-        padding: 15px 20px;
+        padding: 8px 16px; /* Ajusta o tamanho do botão */
+    }
+
+    .container {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center; /* Centraliza os itens */
     }
 }
