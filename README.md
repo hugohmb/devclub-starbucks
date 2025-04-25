@@ -1,4 +1,4 @@
-# Projeto de Layout Responsivo
+# Projeto de Layout Responsivo (Modelo Desktop)
 Este projeto consiste em uma página web responsiva, desenvolvida utilizando HTML, CSS e JavaScript. O design foi criado para adaptar-se a diferentes tamanhos de tela, utilizando Flexbox para organizar os elementos. A página foi projetada para ser funcional em diferentes dispositivos, com foco em evitar problemas com barras de rolagem indesejadas e fornecer interatividade com o usuário.
 
 Índice
